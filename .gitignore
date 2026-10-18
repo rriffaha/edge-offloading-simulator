@@ -2,6 +2,4 @@ __pycache__/
 *.pyc
 notes/
 calibration_tool/for_cameron/
-calibration_vm.json
-github_upload.zip
 .vscode/

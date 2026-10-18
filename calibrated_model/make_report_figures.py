@@ -4,10 +4,10 @@ make_report_figures.py - figures sized for the IEEE two-column interim report.
 Same data as make_figures.py, but drawn at one-column width (3.5 in) with no
 slide-style titles: the report's captions carry the explanation.
 
-Run from this folder:   python make_report_figures.py
-Needs: pip install matplotlib numpy
+Run:    python make_report_figures.py   (from any folder)
+Needs:  pip install matplotlib numpy
 Reads:  results_calibrated.csv
-Writes: figures\\report\\*.png
+Writes: figures/report/*.png
 """
 import csv
 import os

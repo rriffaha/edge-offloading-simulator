@@ -4,10 +4,12 @@ run_experiments.py — the midterm data.
 Runs the proposal's evaluation grid: 2 devices x 3 workloads x 4 networks
 (good, moderate, poor placeholders + the measured home path) x 2 edge
 congestion levels x 4 strategies, over 20 fixed seeds. Writes every row to
-results_calibrated.csv and prints the headline tables.
+results_calibrated.csv (next to this file) and prints the headline tables.
+Takes about a minute.
 """
 
 import csv
+import os
 from dataclasses import fields
 
 import numpy as np
@@ -21,6 +23,7 @@ SEEDS = range(1, 21)
 DEVICES = [NEW_DEVICE, AGING_DEVICE]
 NETWORKS = [GOOD_NET, OKAY_NET, BAD_NET, MEASURED_NET]
 FIELDS = [f.name for f in fields(Metrics)]
+OUT_CSV = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results_calibrated.csv")
 
 
 if __name__ == "__main__":
@@ -45,7 +48,7 @@ if __name__ == "__main__":
                             row[f + "_mean"], row[f + "_std"] = float(np.nanmean(vals)), float(np.nanstd(vals))
                         rows.append(row)
 
-    with open("results_calibrated.csv", "w", newline="") as fh:
+    with open(OUT_CSV, "w", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)

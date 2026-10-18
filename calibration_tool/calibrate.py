@@ -3,15 +3,18 @@ calibrate.py - measure REAL numbers on this laptop to replace the placeholders i
 Standard library + numpy only (PyTorch is optional, used for the GPU test).
 
     python calibrate.py net                       # latency, jitter, loss, up/down bandwidth
-    python calibrate.py compute                   # CPU speed (and GPU speed if PyTorch+CUDA)
+    python calibrate.py compute                   # CPU speed (and GPU speed with PyTorch: NVIDIA CUDA or Apple MPS)
     python calibrate.py frames path\\to\\log.csv    # real game frame times (PresentMon / CapFrameX CSV)
-    python calibrate.py all [log.csv]             # everything; writes calibration_<hostname>.json
+    python calibrate.py all [log.csv]             # everything
 
+net / compute / all save measurements/calibration_<hostname>.json (overwritten each run).
 Run it with the laptop plugged in, in Windows "Best performance" mode, nothing heavy open.
+See README.md in this folder for setup.
 """
 import csv
 import json
 import math
+import os
 import platform
 import socket
 import statistics
@@ -193,7 +196,9 @@ def main():
                   f'loss_rate={v["loss_rate"]:.3f}, bandwidth_down_mbps={result["network"]["download_mbps"]:.0f})')
 
     if what != "frames":
-        fn = f"calibration_{platform.node()}.json"
+        out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "measurements")
+        os.makedirs(out_dir, exist_ok=True)
+        fn = os.path.join(out_dir, f"calibration_{platform.node()}.json")
         with open(fn, "w") as f:
             json.dump(result, f, indent=2)
         print(f"\nSaved {fn}")

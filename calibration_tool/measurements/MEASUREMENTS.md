@@ -1,7 +1,8 @@
 # Measured values (calibrate.py) and how the model numbers were derived
 
-Raw data: `zephyrus_rtx5070ti.json`, `predator_acer_gtx1660ti.json` (this folder).
-Tool: `..\calibrate.py`. Work unit = one 2048x2048 fp32 matrix multiply (17.18 GFLOP).
+Raw data (this folder): `zephyrus_rtx5070ti.json` and `predator_acer_gtx1660ti.json` hold every run per laptop;
+`calibration_Riffa_Zephyrus.json` is the file calibrate.py itself saved on the Zephyrus (last compute run only).
+Tool: `../calibrate.py`. Work unit = one 2048x2048 fp32 matrix multiply (17.18 GFLOP).
 
 ## Device speed (GPU, 3 runs each, same script, 2 s warm-up, plugged in)
 | Laptop | GPU | ms per unit (median) | units/ms | TFLOPS |

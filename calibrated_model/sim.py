@@ -25,10 +25,11 @@ from sklearn.tree import DecisionTreeClassifier
 
 from model import Device, Network, Job, EDGE_SERVER, FRAME_DEADLINE_MS, t_local, t_edge
 from local_sim import MAX_QUEUED_JOBS
+from workload import SIGMA
 
 
 MARGIN_MS = 1.0                          # M in Eq. (3)
-CONGESTION = {"low": 1.0, "high": 6.0}   # mean edge queueing delay Q_E (ms), placeholder
+CONGESTION = {"low": 1.0, "high": 6.0}   # mean edge queueing delay Q_E (ms), ASSUMED
 QE_MEMORY = 0.8                          # how strongly Q_E carries over from one job to the next
 LOCAL_CAP_MS = 100.0                     # T_L stand-in when the local queue is full (can't run locally)
 
@@ -96,7 +97,8 @@ def train_tree(n_samples: int = 20000, seed: int = 0):
     X, y = [], []
     for _ in range(n_samples):
         fl = rng.uniform(3, 12)
-        job = Job("s", work=float(rng.lognormal(math.log(rng.uniform(30, 150)) - 0.045, 0.3)),
+        # same lognormal shape as workload.py, with a random mean work between 30 and 150 units
+        job = Job("s", work=float(rng.lognormal(math.log(rng.uniform(30, 150)) - SIGMA**2 / 2, SIGMA)),
                   data_mb=0.2, deadline_ms=FRAME_DEADLINE_MS)
         ql = 0.0 if rng.random() < 0.4 else rng.uniform(0, 40)
         net = Network("random", latency_ms=rng.uniform(2, 50), bandwidth_mbps=rng.uniform(5, 100),

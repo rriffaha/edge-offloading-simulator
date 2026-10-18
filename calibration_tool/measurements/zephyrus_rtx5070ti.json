@@ -1,5 +1,5 @@
 {
-  "_note": "Transcribed from terminal output Riffa pasted into the chat. Runs 'old_script' used a 5-iteration warm-up (GPU clocks not fully ramped, no tflops field) and are NOT used for the speed ratio; 'new_script' runs (2 s warm-up) are.",
+  "_note": "Transcribed from the calibrate.py terminal output of each run. Runs 'old_script' used a 5-iteration warm-up (GPU clocks not fully ramped, no tflops field) and are NOT used for the speed ratio; 'new_script' runs (2 s warm-up) are.",
   "laptop": "ASUS ROG Zephyrus G14 (2025), RTX 5070 Ti Laptop GPU",
   "hostname": "Riffa_Zephyrus",
   "work_unit": "one 2048x2048 float32 matrix multiply (17.18 GFLOP)",

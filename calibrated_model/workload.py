@@ -15,7 +15,7 @@ import numpy as np
 from model import Job, FRAME_DEADLINE_MS
 
 
-# ---------- Workload presets (placeholder numbers, to be justified later) ----------
+# ---------- Workload presets (ASSUMED; to be replaced by real game frame times, see calibrate.py frames) ----------
 
 SIGMA = 0.3          # spread of the work per job (0 = every job identical)
 FRAME_DATA_MB = 0.2  # same data size as the Step 1 jobs

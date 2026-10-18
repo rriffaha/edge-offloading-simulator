@@ -1,10 +1,11 @@
 """
 make_figures.py - report figures from the calibrated simulation results.
 
-Run from this folder:   python make_figures.py
-Needs: pip install matplotlib numpy
-Reads:  results_calibrated.csv and results_placeholder.csv (both in this folder)
-Writes: figures\\*.png and figures\\summary_tables.csv
+Run:    python make_figures.py   (from any folder)
+Needs:  pip install matplotlib numpy
+Reads:  results_calibrated.csv (this folder) and
+        ../original_placeholder_model/results.csv (the pre-calibration baseline)
+Writes: figures/*.png and figures/summary_tables.csv
 """
 import csv
 import os
@@ -41,15 +42,13 @@ plt.rcParams.update({
 })
 
 
-def load(name):
-    path = os.path.join(HERE, name)
-    if not os.path.exists(path):
-        path = os.path.join(HERE, "..", name)
-    return list(csv.DictReader(open(path, newline="")))
+def load(*parts):
+    with open(os.path.join(HERE, *parts), newline="") as fh:
+        return list(csv.DictReader(fh))
 
 
 new = load("results_calibrated.csv")
-old = load("results_placeholder.csv")
+old = load("..", "original_placeholder_model", "results.csv")
 
 
 def avg(rows, key, **flt):

@@ -1,5 +1,5 @@
 {
-  "_note": "Transcribed from terminal output Riffa pasted into the chat (calibrate.py, same version as the Zephyrus new-script runs). The Predator's own file calibration_LAPTOP-12AKBUDL.json holds only its last run.",
+  "_note": "Transcribed from the calibrate.py terminal output of each run (same script version as the Zephyrus new-script runs). The Predator's own file calibration_LAPTOP-12AKBUDL.json holds only its last run.",
   "laptop": "Acer Predator, GTX 1660 Ti, 16 GB RAM",
   "hostname": "LAPTOP-12AKBUDL",
   "work_unit": "one 2048x2048 float32 matrix multiply (17.18 GFLOP)",

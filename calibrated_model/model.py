@@ -48,20 +48,24 @@ class Job:
     data_out_mb: float = 0.4  # megabits the edge sends back (D_out, used from Step 3 on)
 
 
-# ---------- Test cases (placeholder numbers, to be justified later) ----------
+# ---------- Parameters (MEASURED where marked, otherwise assumed) ----------
+# Only speed RATIOS matter: the work unit is abstract, so the current device is
+# fixed at 10 as the reference and the other speeds are scaled against it.
 
-NEW_DEVICE   = Device("current device", speed=10.0)
-AGING_DEVICE = Device("aging device", speed=3.4)   # MEASURED: GTX 1660 Ti = 34% of RTX 5070 Ti (3 runs each, same calibrate.py)
-EDGE_SERVER  = Device("edge server",  speed=25.0)
+NEW_DEVICE   = Device("current device", speed=10.0)  # reference: RTX 5070 Ti laptop (Zephyrus)
+AGING_DEVICE = Device("aging device", speed=3.4)     # MEASURED: GTX 1660 Ti = 34% of RTX 5070 Ti (3 runs each, same calibrate.py)
+EDGE_SERVER  = Device("edge server",  speed=25.0)    # ASSUMED: 2.5x the reference (not measurable without an edge server)
 
 FRAME_DEADLINE_MS = 1000 / 60  # one frame at 60 fps = 16.67 ms
 
+# good / moderate / poor are ASSUMED edge scenarios (a nearby server at different quality levels)
 GOOD_NET = Network("good",     latency_ms=4,  bandwidth_mbps=100, jitter_ms=1,  loss_rate=0.005, bandwidth_down_mbps=200)
 OKAY_NET = Network("moderate", latency_ms=8,  bandwidth_mbps=50,  jitter_ms=3,  loss_rate=0.01,  bandwidth_down_mbps=100)
 # MEASURED (calibrate.py, 2 laptops, 4 runs, medians): latency 17-28 ms, upload 39-50, download 88-251 Mbps
 MEASURED_NET = Network("measured", latency_ms=22, bandwidth_mbps=44, jitter_ms=7, loss_rate=0.003, bandwidth_down_mbps=150)
 BAD_NET  = Network("poor",     latency_ms=40, bandwidth_mbps=10,  jitter_ms=10, loss_rate=0.05,  bandwidth_down_mbps=20)
 
+# Two fixed jobs for the demo below only; the experiments use workload.py instead.
 LIGHT_JOB = Job("light", work=80,  data_mb=0.2, deadline_ms=FRAME_DEADLINE_MS)
 HEAVY_JOB = Job("heavy", work=220, data_mb=0.2, deadline_ms=FRAME_DEADLINE_MS)
 
@@ -92,7 +96,7 @@ if __name__ == "__main__":
     print("-" * 78)
     for device in [NEW_DEVICE, AGING_DEVICE]:
         for job in [LIGHT_JOB, HEAVY_JOB]:
-            for net in [GOOD_NET, OKAY_NET, BAD_NET]:
+            for net in [GOOD_NET, OKAY_NET, MEASURED_NET, BAD_NET]:
                 tl = t_local(job, device)
                 te = t_edge(job, net)
                 faster = "local" if tl <= te else "edge"
