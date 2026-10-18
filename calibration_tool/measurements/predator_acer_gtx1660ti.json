@@ -1,0 +1,20 @@
+{
+  "_note": "Transcribed from terminal output Riffa pasted into the chat (calibrate.py, same version as the Zephyrus new-script runs). The Predator's own file calibration_LAPTOP-12AKBUDL.json holds only its last run.",
+  "laptop": "Acer Predator, GTX 1660 Ti, 16 GB RAM",
+  "hostname": "LAPTOP-12AKBUDL",
+  "work_unit": "one 2048x2048 float32 matrix multiply (17.18 GFLOP)",
+  "compute_runs": [
+    {"cpu_ms_per_unit": 52.46385, "cpu_tflops": 0.32746, "gpu_ms_per_unit": 3.83085, "gpu_units_per_ms": 0.261039, "gpu_tflops": 4.48461},
+    {"cpu_ms_per_unit": 60.92365, "cpu_tflops": 0.28199, "gpu_ms_per_unit": 3.78940, "gpu_units_per_ms": 0.263894, "gpu_tflops": 4.53366},
+    {"cpu_ms_per_unit": 57.86535, "cpu_tflops": 0.29689, "gpu_ms_per_unit": 3.81060, "gpu_units_per_ms": 0.262426, "gpu_tflops": 4.50844}
+  ],
+  "compute_median": {"gpu_ms_per_unit": 3.8106, "gpu_units_per_ms": 0.262426, "gpu_tflops": 4.508},
+  "network_runs": [
+    {"1.1.1.1": {"latency_ms": 32.550, "jitter_ms": 3.694, "loss_rate": 0.0, "samples": 100},
+     "8.8.8.8": {"latency_ms": 28.216, "jitter_ms": 7.232, "loss_rate": 0.0, "samples": 100},
+     "download_mbps": 142.854, "upload_mbps": 39.094},
+    {"1.1.1.1": {"latency_ms": 32.496, "jitter_ms": 3.294, "loss_rate": 0.0, "samples": 100},
+     "8.8.8.8": {"latency_ms": 16.761, "jitter_ms": 4.921, "loss_rate": 0.0, "samples": 100},
+     "download_mbps": 159.652, "upload_mbps": 44.105}
+  ]
+}

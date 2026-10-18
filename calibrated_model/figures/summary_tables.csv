@@ -1,0 +1,49 @@
+group,value,strategy,miss_rate_pct,avg_violation_ms,edge_time_s,offloaded_pct
+overall,all,Always-local,43.4,21.37,0.00,0.0
+overall,all,Always-edge,80.3,24.48,1.95,100.0
+overall,all,Hybrid v1 (rule),34.0,6.99,0.58,22.3
+overall,all,Hybrid v2 (decision tree),34.2,7.49,0.48,18.1
+network,good,Always-local,43.4,21.37,0.00,0.0
+network,good,Always-edge,30.4,1.26,1.98,100.0
+network,good,Hybrid v1 (rule),13.7,0.52,0.89,36.4
+network,good,Hybrid v2 (decision tree),13.9,0.55,0.84,33.9
+network,moderate,Always-local,43.4,21.37,0.00,0.0
+network,moderate,Always-edge,91.3,6.58,1.97,100.0
+network,moderate,Hybrid v1 (rule),37.1,2.29,0.68,26.2
+network,moderate,Hybrid v2 (decision tree),37.8,2.36,0.65,24.2
+network,poor,Always-local,43.4,21.37,0.00,0.0
+network,poor,Always-edge,100.0,70.43,1.89,100.0
+network,poor,Hybrid v1 (rule),43.4,19.61,0.32,12.2
+network,poor,Hybrid v2 (decision tree),43.4,21.37,0.00,0.0
+network,measured,Always-local,43.4,21.37,0.00,0.0
+network,measured,Always-edge,99.4,19.63,1.98,100.0
+network,measured,Hybrid v1 (rule),41.8,5.56,0.43,14.3
+network,measured,Hybrid v2 (decision tree),41.8,5.67,0.43,14.4
+device,current device,Always-local,4.4,0.13,0.00,0.0
+device,current device,Always-edge,80.3,24.48,1.95,100.0
+device,current device,Hybrid v1 (rule),4.0,0.11,0.03,0.8
+device,current device,Hybrid v2 (decision tree),4.0,0.11,0.03,0.6
+device,aging device,Always-local,82.3,42.61,0.00,0.0
+device,aging device,Always-edge,80.3,24.48,1.95,100.0
+device,aging device,Hybrid v1 (rule),64.0,13.88,1.13,43.8
+device,aging device,Hybrid v2 (decision tree),64.5,14.86,0.93,35.7
+workload,light,Always-local,23.5,1.49,0.00,0.0
+workload,light,Always-edge,77.1,23.41,1.17,100.0
+workload,light,Hybrid v1 (rule),16.4,0.83,0.08,5.0
+workload,light,Hybrid v2 (decision tree),16.7,0.83,0.07,4.0
+workload,moderate,Always-local,50.2,22.18,0.00,0.0
+workload,moderate,Always-edge,80.0,24.35,1.88,100.0
+workload,moderate,Hybrid v1 (rule),38.1,8.57,0.52,24.4
+workload,moderate,Hybrid v2 (decision tree),38.5,7.93,0.43,19.6
+workload,heavy,Always-local,56.4,40.43,0.00,0.0
+workload,heavy,Always-edge,83.7,25.67,2.82,100.0
+workload,heavy,Hybrid v1 (rule),47.5,11.59,1.14,37.4
+workload,heavy,Hybrid v2 (decision tree),47.5,13.70,0.94,30.8
+congestion,low,Always-local,43.4,21.37,0.00,0.0
+congestion,low,Always-edge,72.1,22.15,1.95,100.0
+congestion,low,Hybrid v1 (rule),30.6,6.39,0.62,24.1
+congestion,low,Hybrid v2 (decision tree),31.0,6.99,0.52,19.6
+congestion,high,Always-local,43.4,21.37,0.00,0.0
+congestion,high,Always-edge,88.5,26.80,1.95,100.0
+congestion,high,Hybrid v1 (rule),37.4,7.60,0.54,20.4
+congestion,high,Hybrid v2 (decision tree),37.5,7.99,0.44,16.6

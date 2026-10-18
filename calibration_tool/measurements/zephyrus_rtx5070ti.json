@@ -1,0 +1,28 @@
+{
+  "_note": "Transcribed from terminal output Riffa pasted into the chat. Runs 'old_script' used a 5-iteration warm-up (GPU clocks not fully ramped, no tflops field) and are NOT used for the speed ratio; 'new_script' runs (2 s warm-up) are.",
+  "laptop": "ASUS ROG Zephyrus G14 (2025), RTX 5070 Ti Laptop GPU",
+  "hostname": "Riffa_Zephyrus",
+  "work_unit": "one 2048x2048 float32 matrix multiply (17.18 GFLOP)",
+  "compute_runs_old_script": [
+    {"cpu_ms_per_unit": 32.380, "gpu_ms_per_unit": null, "note": "PyTorch not installed yet"},
+    {"cpu_ms_per_unit": 31.927, "gpu_ms_per_unit": 5.362, "note": "cold-start outlier, ignored"},
+    {"cpu_ms_per_unit": 31.048, "gpu_ms_per_unit": 1.189},
+    {"cpu_ms_per_unit": 31.758, "gpu_ms_per_unit": 1.184},
+    {"cpu_ms_per_unit": 37.409, "gpu_ms_per_unit": 1.393, "note": "machine busy (CPU also slower)"}
+  ],
+  "compute_runs_new_script": [
+    {"cpu_ms_per_unit": 32.2845, "cpu_tflops": 0.53214, "gpu_ms_per_unit": 1.29625, "gpu_units_per_ms": 0.771456, "gpu_tflops": 13.2535},
+    {"cpu_ms_per_unit": 30.89875, "cpu_tflops": 0.55601, "gpu_ms_per_unit": 1.31680, "gpu_units_per_ms": 0.759417, "gpu_tflops": 13.0467},
+    {"cpu_ms_per_unit": 30.9913, "cpu_tflops": 0.55434, "gpu_ms_per_unit": 1.30400, "gpu_units_per_ms": 0.766871, "gpu_tflops": 13.1747}
+  ],
+  "compute_median": {"gpu_ms_per_unit": 1.304, "gpu_units_per_ms": 0.766871, "gpu_tflops": 13.175},
+  "armoury_crate_profile": "Manual mode 1, plugged in, GPU core +50 MHz, memory +100 MHz, TGP at slider max (95 W), thermal target 87 C, Dynamic Boost 25 W",
+  "network_runs": [
+    {"1.1.1.1": {"latency_ms": 37.341, "jitter_ms": 7.756, "loss_rate": 0.0, "samples": 100},
+     "8.8.8.8": {"latency_ms": 25.029, "jitter_ms": 10.743, "loss_rate": 0.01, "samples": 99},
+     "download_mbps": 88.323, "upload_mbps": 49.652},
+    {"1.1.1.1": {"latency_ms": 34.359, "jitter_ms": 6.907, "loss_rate": 0.0, "samples": 100},
+     "8.8.8.8": {"latency_ms": 19.204, "jitter_ms": 6.836, "loss_rate": 0.0, "samples": 100},
+     "download_mbps": 251.499, "upload_mbps": 44.075}
+  ]
+}
